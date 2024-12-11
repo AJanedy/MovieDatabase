@@ -10,9 +10,11 @@ DRIVER_PATH="./src/main/java/driver.jar"
 if [[ "$OS" == "Darwin" ]] || [[ "$OS" == "Linux" ]]; then
   # Unix-based (macOS, Linux)
   CLASSPATH="./bin:$DRIVER_PATH"
+  XAMPP_PATH="/opt/lampp/bin/mysqldump"
 elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
-  # Windows (Git Bash or WSL)
+  # Windows
   CLASSPATH="./bin;$DRIVER_PATH"
+  XAMPP_PATH="C:/xampp/mysql/bin/mysqldump"
 else
   echo "Unsupported OS."
   exit 1
@@ -20,9 +22,6 @@ fi
 
 # Create a bin directory if it doesn't exist
 mkdir -p bin
-
-## Clean out the directory if it already does
-#rm -rf bin/*
 
 # Find all .java files
 find ./src -name "*.java" > sources.txt
@@ -46,54 +45,25 @@ fi
 echo "Running backend Java program..."
 java -cp "$CLASSPATH" MovieDatabase
 
-## If the frontend JavaScript exists, start it
-#if [ -d "./frontend" ]; then
-#  echo "Running frontend..."
-#  cd frontend
-#
-#  # Install dependencies (if Node.js is used)
-#  npm install
-#
-#  # Run the JavaScript application
-#  npm start
-#
-#  cd ..
-#else
-#  echo "Frontend directory not found."
-#fi
+# Ensure mysqldump exists
+if [[ ! -f "$XAMPP_PATH" ]]; then
+    echo "mysqldump not found at $XAMPP_PATH"
+    exit 1
+fi
+
+# Determine the folder the script is running from
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Run mysqldump command to dump the movie_ratings database into an SQL file in the same directory as the script
+"$XAMPP_PATH" -u root movie_ratings > "$SCRIPT_DIR/movie_ratings.sql"
+
+# Check if mysqldump was successful
+if [ $? -eq 0 ]; then
+    echo "Sql file saved to root folder."
+else
+    echo "mysqldump failed."
+    exit 1
+fi
 
 
 
-##!/bin/bash
-#
-## Create a bin directory if it doesn't exist
-#mkdir -p bin
-#
-## Clean out the directory if it already does
-#rm -rf bin/*
-#
-## Find all .java files
-#find ./src -name "*.java" > sources.txt
-#
-## Locate all files in src folder
-#echo
-#ls -R src/main/java
-#
-## Compile java files
-#javac -cp "./bin;./src/main/java/driver.jar" -d ./bin @sources.txt
-#echo
-## Check if the compilation was successful
-#if [ $? -eq 0 ]; then
-#  echo "Compilation was successful."
-#else
-#  echo "Compilation failed."
-#  exit 1
-#fi
-#
-## Verify the compiled classes are int eh bin directory
-#echo
-#ls -R bin
-#echo
-#
-## Run the program
-#java -Xdiag -cp "./bin;./src/main/java/driver.jar" MovieDatabase

@@ -7,6 +7,11 @@ public class BuildAndEnterDatabase {
         // Creating movie_rating database
         statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + databaseName);
         System.out.println("Database created successfully");
+
+        // Grant permissions
+        statement.executeUpdate("GRANT ALL PRIVILEGES ON " + databaseName +
+                ".* TO 'root'@'localhost' WITH GRANT OPTION; ");
+        statement.executeUpdate("FLUSH PRIVILEGES");
     }
     public static void useDatabase(Statement statement, String databaseName) throws SQLException {
 
