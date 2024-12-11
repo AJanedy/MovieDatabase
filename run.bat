@@ -33,6 +33,8 @@ set SCRIPT_DIRECTORY=%~dp0
 echo Sql file saved to root folder.
 echo.
 
+pause
+
 
 
 
