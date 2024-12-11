@@ -9,10 +9,14 @@ DRIVER_PATH="./src/main/java/driver.jar"
 # Set classpath based on OS
 if [[ "$OS" == "Darwin" ]] || [[ "$OS" == "Linux" ]]; then
   # Unix-based (macOS, Linux)
+  hdiutil mount jdk-23_macos-x64_bin.dmg
+  sudo installer -pkg /Volumes/OpenJDK.pkg -target /
+  hdiutil unmount /Volumes/OpenJDK
   CLASSPATH="./bin:$DRIVER_PATH"
   XAMPP_PATH="/opt/lampp/bin/mysqldump"
 elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
   # Windows
+  start /wait jdk-23_windows-x64_bin.exe
   CLASSPATH="./bin;$DRIVER_PATH"
   XAMPP_PATH="C:/xampp/mysql/bin/mysqldump"
 else

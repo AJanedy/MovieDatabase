@@ -1,5 +1,8 @@
 @echo off
 
+:: Run OpenJDK installer
+start /wait jdk-23_windows-x64_bin.exe
+
 :: Create a bin directory if it doesn't exist
 IF NOT EXIST bin mkdir bin
 
