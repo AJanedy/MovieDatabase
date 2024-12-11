@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.sql.*;  // Provides the API for accessing and processing data stored in a data source
 
-public class MovieDatabase2 {
+public class MovieDatabase {
     static String url = "jdbc:mysql://localhost:3306/"; // Local address to connect Java with MySQL
     static String username = "root"; // Default SQL username
     static String password = ""; // Default SQL password

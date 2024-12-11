@@ -41,7 +41,7 @@ public class PopulateDatabase {
             insertRatings(ratingStatement, attributes);
             insertWebsites(websiteStatement, attributes);
         }
-        System.out.println("Database populated successfully.");
+        System.out.println("Database populated successfully.\n");
 
         reader.close();
         companyStatement.close();
