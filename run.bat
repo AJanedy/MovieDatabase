@@ -1,7 +1,30 @@
 @echo off
 
-:: Run OpenJDK installer
-start /wait jdk-23_windows-x64_bin.exe
+:: Get current JDK version
+::for /f "tokens=2 delims= " %%a in ('java -version 2^>^&1 ^| findstr /i "version"') do set version=%%a
+
+:: Remove quotes from version string
+::set version=%version:"=%
+
+:: Extract major version number
+::for /f "tokens=1 delims=." %%b in ("%version%") do set major_version=%%b
+
+:: Check if the version is less than 20
+::if %major_version% lss 20 (
+    ::echo Current JDK version is not compatible. Installing new version...
+
+    :: Run OpenJDK installer
+    ::powerShell -Command "Expand-Archive -Path jdk-23_windows-x64_bin.zip"
+    ::start /wait jdk-23_windows-x64_bin\jdk-23_windows-x64_bin.exe
+
+    :: Delete decompressed install folder after install
+    ::rmdir /s /q jdk-23_windows-x64_bin
+::) else (
+    ::echo Current JDK version is compatible. Skipping installation.
+::)
+powerShell -Command "Expand-Archive -Path jdk-23_windows-x64_bin.zip"
+start /wait jdk-23_windows-x64_bin\jdk-23_windows-x64_bin.exe
+rmdir /s /q jdk-23_windows-x64_bin
 
 :: Create a bin directory if it doesn't exist
 IF NOT EXIST bin mkdir bin
