@@ -1,0 +1,85 @@
+body {
+  margin: 0px;
+  background-image: url("../images/background.jpeg");
+  background-size: 100%;
+  background-attachment:fixed;
+  background-position:center bottom;
+  background-repeat: no-repeat;
+ 
+}
+
+/* Style the header */
+.header {
+  background: linear-gradient(rgb(122, 41, 31) 70%, transparent 100%);
+  color: antiquewhite;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+#movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  width: 200px;
+  margin: 10px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.movie-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.movie-card h5 {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: maroon;
+  
+}
+
+.movie-card a {
+  text-decoration: none;
+}
+
+.movie-card a:hover {
+  text-decoration: underline;
+}
+
+.movie-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.movie-details {
+	width: 100%;
+	float: left;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.movie-details h1 {
+  text-align: center;
+  margin-top: 10px;
+  color: maroon;
+}
+
+.movie-details h3 {
+  margin-top: 10px;
+  color: maroon;
+}

@@ -1,0 +1,6 @@
+[submodule "MovieDatabaseCRUD"]
+	path = MovieDatabaseCRUD
+	url = git@github.com:AJanedy/MovieDatabaseCRUD.git
+[submodule "MovieDatabase2.0"]
+	path = MovieDatabase2.0
+	url = git@github.com:AJanedy/MovieDatabase2.0.git

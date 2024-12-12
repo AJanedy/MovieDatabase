@@ -1,6 +1,0 @@
-./src/main/java/BackupDatabase.java
-./src/main/java/BuildAndEnterDatabase.java
-./src/main/java/CreateTables.java
-./src/main/java/DeleteDatabase.java
-./src/main/java/MovieDatabase.java
-./src/main/java/PopulateDatabase.java

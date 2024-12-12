@@ -45,4 +45,11 @@ Mac: In Terminal while MySQL is running in XAMPP, type
 "/Applications/XAMPP/xamppfiles/bin/mysql -u root -", you can now access the database
 using standard syntax.
 
+npm start > nul
+npm start > /dev/null 
+
+
+start http://localhost:3000
+open http://localhost:3000
+
 

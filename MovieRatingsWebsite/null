@@ -1,0 +1,172 @@
+
+> finalproject@0.0.0 start
+> node ./bin/www
+
+Connected!
+[0mGET /movie/894020390 [32m200 [0m7.213 ms - 1597[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.999 ms - -[0m
+[0mGET /images/background.jpeg [36m304 [0m0.360 ms - -[0m
+[0mGET /javascripts/movie.js [36m304 [0m0.341 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m1.016 ms - 150[0m
+Sending response: {
+  title: 'Seven Samurai',
+  release_year: 1956,
+  movie_poster: '894020390.jpg',
+  director_name: 'Akira Kurosawa',
+  production_company_name: undefined,
+  company_name: 'Toho',
+  year_founded: 1932,
+  prodAddress: 'Tokyo, Japan',
+  cast: [
+    RowDataPacket {
+      actor_name: 'Minoru Chiaki',
+      character_name: 'Heinachi Hayashida'
+    },
+    RowDataPacket {
+      actor_name: 'Seiji Miyaguchi',
+      character_name: 'Kyuzo'
+    },
+    RowDataPacket {
+      actor_name: 'Takashi Shimura',
+      character_name: 'Kambei Shimada'
+    },
+    RowDataPacket {
+      actor_name: 'Toshiro Mifune',
+      character_name: 'Kikuchiyo'
+    },
+    RowDataPacket {
+      actor_name: 'Yoshio Inaba',
+      character_name: 'Gorobei Katayama'
+    }
+  ],
+  ratings: [
+    RowDataPacket { source: 'IMDb', rating: '8.6', top_25_rank: null },
+    RowDataPacket {
+      source: 'Metacritic',
+      rating: '98.0',
+      top_25_rank: 24
+    },
+    RowDataPacket {
+      source: 'Rotten Tomatoes',
+      rating: '100.0',
+      top_25_rank: 4
+    }
+  ],
+  imdb_url: 'https://www.imdb.com/title/tt0047478/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_seven%2520sa',
+  metacritic_url: 'https://www.metacritic.com/movie/seven-samurai-1954/',
+  rotten_tomatoes_url: 'https://www.rottentomatoes.com/m/seven_samurai_1956',
+  wikipedia_url: 'https://en.wikipedia.org/wiki/Seven_Samurai'
+}
+[0mGET /movieDetails/894020390 [32m200 [0m5.384 ms - 1002[0m
+[0mGET /images/894020390.jpg [36m304 [0m0.273 ms - -[0m
+[0mGET /movie/460482582 [32m200 [0m0.998 ms - 1597[0m
+[0mGET /javascripts/movie.js [36m304 [0m0.704 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.315 ms - -[0m
+[0mGET /images/background.jpeg [36m304 [0m0.673 ms - -[0m
+Sending response: {
+  title: 'Spotlight',
+  release_year: 2015,
+  movie_poster: '460482582.jpg',
+  director_name: 'Tom McCarthy',
+  production_company_name: undefined,
+  company_name: 'Participant Media',
+  year_founded: 2004,
+  prodAddress: 'Los Angeles, CA, United States',
+  cast: [
+    RowDataPacket {
+      actor_name: 'John Slattery',
+      character_name: 'Ben Bradlee Jr.'
+    },
+    RowDataPacket {
+      actor_name: 'Liev Schreiber',
+      character_name: 'Marty Baron'
+    },
+    RowDataPacket {
+      actor_name: 'Mark Ruffalo',
+      character_name: 'Mike Rezendes'
+    },
+    RowDataPacket {
+      actor_name: 'Michael Keaton',
+      character_name: "Walter 'Robby' Robinson"
+    },
+    RowDataPacket {
+      actor_name: 'Rachel McAdams',
+      character_name: 'Sacha Pfeiffer'
+    }
+  ],
+  ratings: [
+    RowDataPacket { source: 'IMDb', rating: '8.1', top_25_rank: null },
+    RowDataPacket {
+      source: 'Metacritic',
+      rating: '93.0',
+      top_25_rank: null
+    },
+    RowDataPacket {
+      source: 'Rotten Tomatoes',
+      rating: '97.0',
+      top_25_rank: 20
+    }
+  ],
+  imdb_url: 'https://www.imdb.com/title/tt1895587/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_spotlight',
+  metacritic_url: 'https://www.metacritic.com/movie/spotlight/',
+  rotten_tomatoes_url: 'https://www.rottentomatoes.com/m/spotlight_2015',
+  wikipedia_url: 'https://en.wikipedia.org/wiki/Spotlight_(film)'
+}
+[0mGET /movieDetails/460482582 [32m200 [0m3.644 ms - 1028[0m
+[0mGET /favicon.ico [0m- [0m- ms - -[0m
+[0mGET /images/460482582.jpg [36m304 [0m0.314 ms - -[0m
+[0mGET /movie/870673075 [32m200 [0m0.709 ms - 1597[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.544 ms - -[0m
+[0mGET /javascripts/movie.js [36m304 [0m0.266 ms - -[0m
+[0mGET /images/background.jpeg [36m304 [0m0.313 ms - -[0m
+Sending response: {
+  title: 'Rear Window',
+  release_year: 1954,
+  movie_poster: '870673075.jpg',
+  director_name: 'Alfred Hitchcock',
+  production_company_name: undefined,
+  company_name: 'Patron Inc.',
+  year_founded: null,
+  prodAddress: null,
+  cast: [
+    RowDataPacket {
+      actor_name: 'Grace Kelly',
+      character_name: 'Lisa Fremont'
+    },
+    RowDataPacket {
+      actor_name: 'James Stewart',
+      character_name: 'L.B. Jeffries'
+    },
+    RowDataPacket {
+      actor_name: 'Raymond Burr',
+      character_name: 'Lars Thorwald'
+    },
+    RowDataPacket {
+      actor_name: 'Thelma Ritter',
+      character_name: 'Stella'
+    },
+    RowDataPacket {
+      actor_name: 'Wendell Corey',
+      character_name: 'Tom Doyle'
+    }
+  ],
+  ratings: [
+    RowDataPacket { source: 'IMDb', rating: '8.5', top_25_rank: null },
+    RowDataPacket {
+      source: 'Metacritic',
+      rating: '100.0',
+      top_25_rank: 11
+    },
+    RowDataPacket {
+      source: 'Rotten Tomatoes',
+      rating: '98.0',
+      top_25_rank: 13
+    }
+  ],
+  imdb_url: 'https://www.imdb.com/title/tt0047396/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_rear',
+  metacritic_url: 'https://www.metacritic.com/movie/rear-window/',
+  rotten_tomatoes_url: 'https://www.rottentomatoes.com/m/1017289-rear_window',
+  wikipedia_url: 'https://en.wikipedia.org/wiki/Rear_Window'
+}
+[0mGET /movieDetails/870673075 [32m200 [0m2.019 ms - 968[0m
+[0mGET /images/870673075.jpg [36m304 [0m0.312 ms - -[0m
