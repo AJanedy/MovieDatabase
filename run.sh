@@ -10,7 +10,7 @@ DRIVER_PATH="./src/main/java/driver.jar"
 if [[ "$OS" == "Darwin" ]] || [[ "$OS" == "Linux" ]]; then
   # Unix-based (macOS)
   CLASSPATH="./bin:$DRIVER_PATH"
-  XAMPP_PATH="/opt/lampp/bin/mysqldump"
+  XAMPP_PATH="/Applications/XAMPP/xamppfiles/var/mysql"
 
 elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
   # Windows
