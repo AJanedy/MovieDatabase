@@ -29,22 +29,25 @@ if %ERRORLEVEL% NEQ 0 (
     pause
     exit /b 1
 ) else (
-    echo SQL file saved to "%~dp0movie_ratings.sql".
+    echo SQL file saved to "%~dp0\MovieRatingsWebsite\movie_ratingsMySql.sql".
 )
 
 :: Start website and open browser
 cd MovieRatingsWebsite
 :: Starts npm in background
 start /B npm start > nul 2>&1
+:: Launch website
+echo Launching the Movie Ratings Website
 start http://localhost:3000
 cd ..
 
-pause
+echo Press any key to terminate the program and free the port
+pause > nul
 
 :: Find and kill the node process on port 3000
-netstat -ano | findstr :3000
+netstat -ano | findstr :3000 > nul
 for /f "tokens=5" %%a in ('netstat -ano ^| findstr :3000') do set PID=%%a
-echo %PID%
 start /B powershell Stop-Process -Id %PID% -Force
 
-pause
+echo Thank you for using the Movie Database Website :)
+pause > nul

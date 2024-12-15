@@ -57,12 +57,27 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Run mysqldump command to dump the movie_ratings database into an SQL file in the same directory as the script
-"$XAMPP_PATH" -u root movie_ratings > "$SCRIPT_DIR/movie_ratings.sql"
+"$XAMPP_PATH" -u root movie_ratings > "$SCRIPT_DIR/MovieRatingsWebsite/movie_ratings_MySql.sql"
 
 # Check if mysqldump was successful
 if [ $? -eq 0 ]; then
-    echo "Sql file saved to root folder."
+    echo "Sql file saved to $SCRIPT_DIR$/MovieRatingsWebsite/movie_ratings_MySql.sql."
 else
     echo "mysqldump failed."
     exit 1
 fi
+
+# Start the website and open the browser
+cd MovieRatingsWebsite
+# Start npm in background
+nohup npm start > /dev/null 2>&1 &
+if [[ "$OS" == "Darwin" ]]; then
+  open http://http://localhost:3000
+elf [[ "$OS" == "Linux"]]
+  xdg-open http://localhost:3000
+elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
+  start http://localhost:3000
+fi
+
+cd ..
+
