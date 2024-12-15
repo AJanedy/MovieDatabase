@@ -72,12 +72,27 @@ cd MovieRatingsWebsite
 # Start npm in background
 nohup npm start > /dev/null 2>&1 &
 if [[ "$OS" == "Darwin" ]]; then
-  open http://http://localhost:3000
-elf [[ "$OS" == "Linux"]]
+  open http://localhost:3000
+elif [[ "$OS" == "Linux" ]]; then
   xdg-open http://localhost:3000
 elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
   start http://localhost:3000
 fi
 
 cd ..
+PID=$(netstat -ano | grep :3000 | awk '{print $5}' | head -n 1)
 
+echo "Press any key to terminate the program and free the port"
+read -n 1 -s
+
+if [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
+  PID=$(netstat -ano | grep :3000 | awk '{print $5}' | head -n 1)
+  taskkill //PID "$PID" //F
+elif [[ "$OS" == "Darwin" ]]; then
+  lsof -i :3000 | awk 'NR>1 {print $2}' | xargs kill -9 > /dev/null
+elif [[ "$OS" == "Linux" ]]; then
+  ss -ltnp | grep :3000 > /dev/null 2>&1
+  ss -ltnp | grep :3000 | awk '{print $6}' | cut -d',' -f2 | xargs kill -9 > /dev/null
+fi
+
+echo "Thank you for using the Movie Database Website :)"

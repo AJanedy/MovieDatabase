@@ -13,6 +13,9 @@ Java Development Kit (JDK) Version 20 (or higher)
 Apache Maven 3.6 (or higher)
 MySQL (5.x or higher)
 XAMPP installed in root directory (C:\\xampp) and an instance of Xampp MySQL active
+
+For Website:
+Node.js (10.x or higher)
 ========================================================================================
 
                                    Instructions
@@ -45,11 +48,5 @@ Mac: In Terminal while MySQL is running in XAMPP, type
 "/Applications/XAMPP/xamppfiles/bin/mysql -u root -", you can now access the database
 using standard syntax.
 
-npm start > nul
-npm start > /dev/null 
-
-
-start http://localhost:3000
-open http://localhost:3000
 
 
