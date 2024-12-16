@@ -11,7 +11,6 @@ public class DeleteDatabase {
         String url = "jdbc:mysql://localhost:3306/"; // Local address to connect Java with MySQL
         String username = "root"; // Default SQL username
         String password = ""; // Default SQL password
-        String databaseName = "movie_ratings"; // Desired SQL database name
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         // Create connection to SQL database:

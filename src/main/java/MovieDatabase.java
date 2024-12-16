@@ -1,15 +1,15 @@
 import java.io.IOException;
-import java.sql.*;  // Provides the API for accessing and processing data stored in a data source
+import java.sql.*;
 
 public class MovieDatabase {
     static String url = "jdbc:mysql://localhost:3306/"; // Local address to connect Java with MySQL
     static String username = "root"; // Default SQL username
     static String password = ""; // Default SQL password
     static String databaseName = "movie_ratings"; // Desired SQL database name
-    static String filename = "MovieRatings.csv"; // Name of .csv file used to populate database
+    static String csvFile = "MovieRatings.csv"; // Name of .csv file used to populate database
     public static void main(String[] args) throws ClassNotFoundException {
 
-        // load and register JDBC driver
+        // Load and register JDBC driver
         Class.forName("com.mysql.cj.jdbc.Driver");
         // Create connection to SQL database:
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
@@ -32,7 +32,7 @@ public class MovieDatabase {
 
                 // Populate database
                 PopulateDatabase populateDatabase = new PopulateDatabase();
-                populateDatabase.populateDatabase(connection, filename);
+                populateDatabase.populateDatabase(connection, csvFile);
 
             } catch (SQLException e) {
                 System.out.println("Failed to create database: " + e.getMessage());

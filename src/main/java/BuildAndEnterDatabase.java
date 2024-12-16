@@ -8,7 +8,7 @@ public class BuildAndEnterDatabase {
         statement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + databaseName);
         System.out.println("Database created successfully");
 
-        // Grant permissions
+        // Grant permissions.  Ensures root user has access to database.
         statement.executeUpdate("GRANT ALL PRIVILEGES ON " + databaseName +
                 ".* TO 'root'@'localhost' WITH GRANT OPTION; ");
         statement.executeUpdate("FLUSH PRIVILEGES");

@@ -33,9 +33,9 @@ Mac using Terminal/Windows using Bash emulator such as Git Bash: Make sure you
 have MySql running in XAMPP. Navigate to the root folder. If using a Mac, run
 commands "chmod +x run.sh" and "chmod +x delete.sh". On either system, now run 
 "./run.sh". To delete the SQL database that was just created, while MySQL is running, 
-in the root directory, run "./delete.sh".  Note that if a compatible version of OpenJDK is not installed on
-the system, the program will unzip the installer and run it, the user will then have
-to install the included OpenJDK before proceeding with the program.
+in the root directory, run "./delete.sh".  Note that if a compatible version of OpenJDK 
+is not installed on the system, the program will unzip the installer and run it, the 
+user will then have to install the included OpenJDK before proceeding with the program.
 ========================================================================================
 
                                 Accessing Database

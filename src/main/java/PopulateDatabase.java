@@ -19,11 +19,11 @@ public class PopulateDatabase {
     static PreparedStatement castStatement;
     static PreparedStatement ratingStatement;
     static PreparedStatement websiteStatement;
-    public static void populateDatabase(Connection connection, String filename) throws IOException, SQLException {
+    public static void populateDatabase(Connection connection, String csvFile) throws IOException, SQLException {
 
         prepareSqlStatements(connection); // Initializes PreparedStatement(s)
 
-        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        BufferedReader reader = new BufferedReader(new FileReader(csvFile));
         String line;
         reader.readLine(); // Skip header
 
