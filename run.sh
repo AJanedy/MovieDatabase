@@ -7,15 +7,20 @@ OS=$(uname)
 DRIVER_PATH="./src/main/java/driver.jar"
 
 # Set classpath based on OS
-if [[ "$OS" == "Darwin" ]] || [[ "$OS" == "Linux" ]]; then
+if [[ "$OS" == "Darwin" ]]; then
   # Unix-based (macOS)
   CLASSPATH="./bin:$DRIVER_PATH"
-  XAMPP_PATH="/Applications/XAMPP/xamppfiles/var/mysql"
+  XAMPP_PATH="/Applications/XAMPP/xamppfiles/bin/mysqldump"
 
 elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
   # Windows
   CLASSPATH="./bin;$DRIVER_PATH"
   XAMPP_PATH="C:/xampp/mysql/bin/mysqldump"
+
+elif [[ "$OS" == "Linux" ]]; then
+  # Linux
+  CLASSPATH="./bin:$DRIVER_PATH"
+  XAMPP_PATH="/opt/lampp/bin/mysqldump"
 
 else
   echo "Unsupported OS."
@@ -71,6 +76,7 @@ fi
 cd MovieRatingsWebsite
 # Start npm in background
 nohup npm start > /dev/null 2>&1 &
+sleep 3
 if [[ "$OS" == "Darwin" ]]; then
   open http://localhost:3000
 elif [[ "$OS" == "Linux" ]]; then
@@ -80,7 +86,6 @@ elif [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
 fi
 
 cd ..
-PID=$(netstat -ano | grep :3000 | awk '{print $5}' | head -n 1)
 
 echo "Press any key to terminate the program and free the port"
 read -n 1 -s
@@ -88,11 +93,9 @@ read -n 1 -s
 if [[ "$OS" == "MINGW"* ]] || [[ "$OS" == "MSYS"* ]]; then
   PID=$(netstat -ano | grep :3000 | awk '{print $5}' | head -n 1)
   taskkill //PID "$PID" //F
-elif [[ "$OS" == "Darwin" ]]; then
-  lsof -i :3000 | awk 'NR>1 {print $2}' | xargs kill -9 > /dev/null
-elif [[ "$OS" == "Linux" ]]; then
-  ss -ltnp | grep :3000 > /dev/null 2>&1
-  ss -ltnp | grep :3000 | awk '{print $6}' | cut -d',' -f2 | xargs kill -9 > /dev/null
+elif [[ "$OS" == "Darwin" ]] || [[ "$OS" == "Linux" ]]; then
+  PID=$(lsof -i :3000 -t | head -n 1)
+  kill -9 $PID
 fi
 
 echo "Thank you for using the Movie Database Website :)"
