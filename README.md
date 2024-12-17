@@ -1,3 +1,5 @@
+Authors: Andy Janedy & Alexandra Arbia
+
                                   Movie Database
 ========================================================================================
 An application for connecting to MySQL via Xampp relational database management system.
